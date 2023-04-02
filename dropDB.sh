@@ -9,7 +9,7 @@ function dropDB()
                 echo "Empty input, Please try again"
                 dropDB
         else
-             rm -ir ./DBMS/$dbname
+             rm -ir ./DBMS/$dbname  2> /dev/null
         fi
         if [[ $? == 0 ]]
         then
