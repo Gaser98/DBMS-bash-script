@@ -17,11 +17,13 @@ function tablesmenu()
                         ;;
                 4)insertIntoTable
                         ;;
-                5)selectFromtable
+                5)selectTable
                         ;;
-                6)deleteFromTable
+                6)deleteTable
                         ;;
-		7) exit
+                7)updateTable
+                        ;;        
+		8) exit
 			;;
                 *)echo "Invalid option..choose again"
                         ;;
