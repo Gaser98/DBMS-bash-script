@@ -1,6 +1,6 @@
 #!/bin/bash
 
-createTable() {
+function createTable() {
     table_name=$1
     shift
     columns="$@"
