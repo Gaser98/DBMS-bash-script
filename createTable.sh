@@ -16,8 +16,9 @@ function createTable() {
     if [[ -f "${table_name}.txt" ]]; then
         echo "Table ${table_name} already exists"
         return
+        createTable
     fi
-    createTable
+    
     # Create table file
     touch "${table_name}.txt"
 
