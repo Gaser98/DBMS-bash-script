@@ -1,5 +1,5 @@
 #!/bin/bash
-function insertIntoTable (){
+function updateTable (){
 
 echo "Enter the table_name:"
 read tname
