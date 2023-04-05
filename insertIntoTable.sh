@@ -1,24 +1,24 @@
 function insertIntoTable {
     # Get the name of the table
     echo -e "Enter the name of the table to populate: \c"
-    read table_name
+    read tname
 
     # Check if the table exists
-    if [ ! -f "database/$table_name" ]; then
-        echo "Table $table_name does not exist."
+    if [ ! -f ./DBMS/$tname ]; then
+        echo "Table $tname does not exist."
         return 1
     fi
 
     # Get the list of column names
-    column_names=($(head -n 1 "database/$table_name" | tr ';' ' '))
+    column_names=($(head -n 1 .DBMS/$tname | tr ';' ' '))
 
     # Loop through each column and prompt for values
     for column_name in "${column_names[@]}"; do
         # Check if the column is the primary key
         if [[ "$column_name" == "id" ]]; then
             # Check if the id column is already populated
-            if grep -q ";$id;" "database/$table_name"; then
-                echo "The id column of table $table_name is already populated."
+            if grep -q ";$id;" ./DBMS/$tname; then
+                echo "The id column of table $tname is already populated."
                 continue
             fi
         fi
@@ -28,7 +28,7 @@ function insertIntoTable {
         read column_value
 
         # Check if the column value is null
-        if [[ -z "$column_value" ]]; then
+        if [[ -z $column_value ]]; then
             echo "Column $column_name cannot be null."
             continue
         fi
