@@ -11,7 +11,7 @@ function createDB()
     then
         echo "Empty input,please enter a database name"
     createDB
-    elif  [[ -d ./database/$DBname ]]
+    elif  [[ -d ./DBMS/$DBname ]]
     then
         echo "Database already exists !"
         createDB
