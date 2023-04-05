@@ -10,7 +10,7 @@ function insertIntoTable {
     fi
 
     # Get the list of column names
-    column_names=($(head -n 1 .DBMS/$tname | tr ';' ' '))
+    column_names=($(head -n 1 .DBMS/$tname | tr ':' ' '))
 
     # Loop through each column and prompt for values
     for column_name in "${column_names[@]}"; do
