@@ -4,7 +4,7 @@
 function select {
 	echo -e "Enter the name of the table you want to select from : \c"
 	read tname
-	if [[ -f ./database/$tname ]] then
+	if [[ -f ./DBMS/$tname ]] then
 		select item in "Select the whole table" "Select a field from the table" "Exit"
 		do
 			case $REPLY in
