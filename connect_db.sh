@@ -9,5 +9,6 @@ if [ -d $DBname ]; then
 	echo "connected to $DBname successfully"
 else
 	echo "Database doesn't exist , enter a valid database "
+	menu
 fi
 }
