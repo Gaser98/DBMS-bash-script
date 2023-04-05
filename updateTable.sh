@@ -13,7 +13,10 @@ read columns
 echo "Enter the new data:"
 read new_data
 
-awk -v row="$row" -v columns="$columns" -v new_data="$new_data" 'BEGIN {FS=OFS="\t"} NR==row {split(columns, c, ":"); for (i in c) $c[i] = new_data} {print}' $tname.txt > tmp && mv tmp $tname.txt
+awk -v row="$row" -v columns="$columns" -v new_data="$new_data" \
+'BEGIN {FS=OFS="\t"} NR==row {split(columns, c, ":"); \
+for (i in c) $c[i] = new_data} {print}' \
+$tname.txt > tmp && mv tmp $tname.txt
 
 echo "Fields updated successfully!"
 }
