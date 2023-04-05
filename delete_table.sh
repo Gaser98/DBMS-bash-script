@@ -6,8 +6,9 @@ function delete {
 	read DBname
 	echo -e "Enter the name of the table you want to delete from : \c"
 	read tname
-	if [[ -f ./database/$DBname/$tname ]] then
-		select item in "Delete the whole table" "Delete a field from the table" "Exit"
+	if [[ -d ./database/$DBname ]] then
+	    if [[ -f ./database/$DBname/$tname ]] then
+		     select item in "Delete the whole table" "Delete a field from the table" "Exit"
 		do 
 			case $REPLY in
 				1)
@@ -29,4 +30,9 @@ function delete {
 	else
 		echo "There is no table with that name"
 		tablesmenu
+		fi
+		else 
+		echo "There is no database with this name"
+		tablesmenu
+		fi
 	}
