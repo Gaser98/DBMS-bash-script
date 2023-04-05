@@ -26,5 +26,6 @@ function createTable() {
     echo "$columns" > "${tname}.txt"
 
     echo "Table ${tname} created successfully"
+    tablesmenu
 }
 
