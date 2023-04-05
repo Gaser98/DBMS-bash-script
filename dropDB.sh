@@ -2,14 +2,14 @@
 function dropDB()
 {
         echo "Please enter a database name from below to delete it.. "
-        ls ./DBMS
-        read dbname
-        if [ -z "$dbname" ]
+        #ls ./DBMS
+        read DBname
+        if [ -z "$DBname" ]
         then
                 echo "Empty input, Please try again"
                 dropDB
         else
-             rm -ir ./DBMS/$dbname  2> /dev/null
+             rm -ir ./DBMS/$DBname  2> /dev/null
         fi
         if [[ $? == 0 ]]
         then
