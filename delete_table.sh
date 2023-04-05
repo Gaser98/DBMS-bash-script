@@ -2,9 +2,11 @@
 
 #function to delete data from a table in database
 function delete {
+        echo -e "Enter the name of the database the table is from : \c"
+	read DBname
 	echo -e "Enter the name of the table you want to delete from : \c"
 	read tname
-	if [[ -f database/$tname ]] then
+	if [[ -f ./database/$DBname/$tname ]] then
 		select item in "Delete the whole table" "Delete a field from the table" "Exit"
 		do 
 			case $REPLY in
