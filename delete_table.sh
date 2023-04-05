@@ -26,5 +26,5 @@ function delete {
 		done
 	else
 		echo "There is no table with that name"
-		tablemenu
+		tablesmenu
 	}
