@@ -11,14 +11,14 @@ function delete {
 				1)
 					 > database/$tname
 					 echo "The whole table has been deleted"
-					 tablemenu
+					 tablesmenu
 					 ;;
 				 2)
 					 echo -e "Enter the name of the field you want to delete : \c"
 					 read field 
 					 awk `{$field=""; print$0}`
 					 echo "Field has been deleted"
-					 tablemenu
+					 tablesmenu
 					 ;;
 				 3) exit
 					 ;;
