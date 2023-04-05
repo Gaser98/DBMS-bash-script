@@ -6,16 +6,16 @@ function createDB()
             mkdir DBMS
         fi
     echo "Please enter a database name"
-    read name
-    if [ -z $name ]
+    read DBname
+    if [ -z $DBname ]
     then
         echo "Empty input,please enter a database name"
     createDB
-    elif  [[ -d ./database/$name ]]
+    elif  [[ -d ./database/$DBname ]]
     then
         echo "Database already exists !"
         createDB
     else
-        mkdir ./DBMS/$name
+        mkdir ./DBMS/$DBname
     fi
 }
