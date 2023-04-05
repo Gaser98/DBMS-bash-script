@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function createTable() {
-    table_name=$1
+    tname=$1
     shift
     columns="$@"
 
@@ -13,18 +13,18 @@ function createTable() {
         fi
     done
     # Check if table already exists
-    if [[ -f "${table_name}.txt" ]]; then
-        echo "Table ${table_name} already exists"
+    if [[ -f "${tname}.txt" ]]; then
+        echo "Table ${tname} already exists"
         return
         createTable
     fi
     
     # Create table file
-    touch "${table_name}.txt"
+    touch "${tname}.txt"
 
     # Add column names to file
-    echo "$columns" > "${table_name}.txt"
+    echo "$columns" > "${tname}.txt"
 
-    echo "Table ${table_name} created successfully"
+    echo "Table ${tname} created successfully"
 }
 
