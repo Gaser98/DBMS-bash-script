@@ -4,5 +4,6 @@
 function listDB {
         cd ./DBMS
 	ls -F | grep "/"
+	tablesmenu
 }
 
