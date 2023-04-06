@@ -163,6 +163,7 @@ function deleteTable {
         fi
 }
 function insertIntoTable {
+    #datatypes can be inserted as the first row of population
     echo -e "Enter the name of the table to populate: \c"
     read tname
 
