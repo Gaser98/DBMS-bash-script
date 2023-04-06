@@ -1,3 +1,4 @@
+#!/bin/bash
 function connectDB {
 echo "Please enter the name of the database you want to connect :" 
 read DBname
