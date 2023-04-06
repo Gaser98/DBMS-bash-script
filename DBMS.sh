@@ -142,7 +142,7 @@ function deleteTable {
         if [[ -f "${tname}.txt" ]]; then
             select item in "Drop table" "Delete table" "Exit"
             do 
-                case $REPLY in
+                case $REPLY in         #REPLY as independent option selector to avoid repeating the options' strings
                     1)
                         rm ${tname}.txt
                         echo "The whole table has been deleted"
@@ -163,7 +163,6 @@ function deleteTable {
         fi
 }
 function insertIntoTable {
-    # Get the name of the table
     echo -e "Enter the name of the table to populate: \c"
     read tname
 
@@ -172,7 +171,7 @@ function insertIntoTable {
         echo "Table ${tname}.txt does not exist."
         return 1
     fi
-    pwd
+    pwd  #path check
     # Get the list of column names
     column_names=($(head -n 1 ${tname}.txt | tr ':' ' '))
 
