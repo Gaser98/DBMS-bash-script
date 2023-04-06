@@ -142,7 +142,7 @@ function deleteTable {
         if [[ -f "${tname}.txt" ]]; then
             select item in "Drop table" "Delete table" "Exit"
             do 
-                case $REPLY in         #REPLY as independent option selector to avoid repeating the options' strings
+                case $REPLY in         #REPLY as a selector to avoid repeating the options' strings
                     1)
                         rm ${tname}.txt
                         echo "The whole table has been deleted"
@@ -232,7 +232,7 @@ function updateTable {
     read tname
     echo "Enter the row:"
     read row
-    echo "Enter the column number(s) you wish to modify:"
+    echo "Enter the column or field:"
     read columns
     echo "Enter the new data:"
     read new_data
