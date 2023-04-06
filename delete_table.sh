@@ -1,7 +1,5 @@
 #!/bin/bash
 function deleteTable {
-    #echo -e "Enter the name of the database the table is from : \c"
-    #read DBname
     echo -e "Enter the name of the table you want to delete from : \c"
     read tname
     
