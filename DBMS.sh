@@ -215,7 +215,6 @@ function insertIntoTable {
         echo ${arr[$i]}
         i=$((i+1))
         echo $i
-        #printf "%s\n" "${columns[@]}" > "${tname}"
         echo "Column $column_name value '$column_value' added to table $tname.txt"
     done
     echo "${arr[*]}" | tr ' ' ':' >> "${tname}.txt"
