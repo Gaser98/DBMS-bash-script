@@ -63,7 +63,6 @@ fi
 function dropDB()
 {
         echo "Please enter a database name from below to delete it.. "
-        #ls ./DBMS
         read DBname
         if [ -z "$DBname" ]
         then
@@ -208,7 +207,6 @@ function insertIntoTable {
         fi
 
         # Append the column value to the table file
-        #echo -e "$column_value" >> $tname.txt 
         arr[$i]=$column_value
         echo ${arr[$i]}
         i=$((i+1))
@@ -216,7 +214,7 @@ function insertIntoTable {
         echo "Column $column_name value '$column_value' added to table $tname.txt"
     done
     echo "${arr[*]}" | tr ' ' ':' >> "${tname}.txt"
-   #printf "%s\n" "${arr[@]}" >> "${tname}.txt"
+    #printf "%s\n" "${arr[@]}" >> "${tname}.txt"
 }
 function selectTable {
     echo -e "Enter the name of the table you want to select from : \c"
