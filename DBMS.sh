@@ -180,9 +180,9 @@ function insertIntoTable {
     i=0
     for column_name in "${column_names[@]}"; do
         # Check if the column is the primary key
-        if [[ "$column_name" == ":id:" ]]; then
+        if [[ "$column_name" == "id" ]]; then
             # Check if the id column is already populated
-            if grep -q ":$id:" ${tname}.txt; then
+            if grep -q "$id" ${tname}.txt; then
                 echo "The id column of table ${tname}.txt is already populated."
                 continue
             fi
