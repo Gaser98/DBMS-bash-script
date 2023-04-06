@@ -1,38 +1,30 @@
-#!/usr/bin
-
-#function to delete data from a table in database
-function delete {
-        echo -e "Enter the name of the database the table is from : \c"
-	read DBname
-	echo -e "Enter the name of the table you want to delete from : \c"
-	read tname
-	if [[ -d ./DBMS/$DBname ]] then
-	    if [[ -f ./DBMS/$DBname/$tname ]] then
-		     select item in "Delete the whole table" "Delete a field from the table" "Exit"
-		do 
-			case $REPLY in
-				1)
-					 > database/$tname
-					 echo "The whole table has been deleted"
-					 tablesmenu
-					 ;;
-				 2)
-					 echo -e "Enter the name of the field you want to delete : \c"
-					 read field 
-					 awk `{$field=""; print$0}`
-					 echo "Field has been deleted"
-					 tablesmenu
-					 ;;
-				 3) exit
-					 ;;
-			 esac 
-		done
-	else
-		echo "There is no table with that name"
-		tablesmenu
-		fi
-		else 
-		echo "There is no database with this name"
-		tablesmenu
-		fi
-	}
+#!/bin/bash
+function deleteTable {
+    #echo -e "Enter the name of the database the table is from : \c"
+    #read DBname
+    echo -e "Enter the name of the table you want to delete from : \c"
+    read tname
+    
+        if [[ -f "${tname}.txt" ]]; then
+            select item in "Drop table" "Delete table" "Exit"
+            do 
+                case $REPLY in
+                    1)
+                        rm ${tname}.txt
+                        echo "The whole table has been deleted"
+                        ;;
+                    2)
+                        awk 'NR==1{print > "temp.txt"; next} {exit}' ${tname}.txt && mv temp.txt ${tname}.txt
+                        echo "Table has been cleared"
+                        ;;
+                    3) 
+                        exit
+                        tablesmenu
+                        ;;
+                esac 
+            done
+        else
+            echo "There is no table with that name"
+            tablesmenu
+        fi
+}
