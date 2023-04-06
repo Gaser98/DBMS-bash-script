@@ -44,14 +44,11 @@ function insertIntoTable {
         fi
 
         # Append the column value to the table file
-        #echo -e "$column_value" >> $tname.txt 
         arr[$i]=$column_value
         echo ${arr[$i]}
         i=$((i+1))
         echo $i
-        #printf "%s\n" "${columns[@]}" > "${tname}"
         echo "Column $column_name value '$column_value' added to table $tname.txt"
     done
     echo "${arr[*]}" | tr ' ' ':' >> "${tname}.txt"
-   #printf "%s\n" "${arr[@]}" >> "${tname}.txt"
 }
