@@ -131,7 +131,7 @@ function createTable {
             exit 1
         fi
     done
-    printf "%s\n" "${columns[@]}" > "${tname}.txt"
+    echo "${columns[*]}" | tr ' ' ':' > "${tname}.txt"
 }
 
 
