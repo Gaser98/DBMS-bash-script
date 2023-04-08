@@ -184,7 +184,6 @@ function insertIntoTable {
             # Check if the id column is already populated
             if grep -q "$id" ${tname}.txt; then
                 echo "The id column of table ${tname}.txt is already populated."
-                continue
             fi
         fi
 
