@@ -179,32 +179,15 @@ function insertIntoTable {
     # Loop through each column and prompt for values
     i=0
     for column_name in "${column_names[@]}"; do
-        # Check if the column is the primary key
-        if [[ "$column_name" == "id" ]]; then
-            # Check if the id column is already populated
-            if grep -q "$id" ${tname}.txt; then
-                echo "The id column of table ${tname}.txt is already populated."
-            fi
-        fi
-
-        # Prompt for column value
+  
         echo -e "Enter a value for column $column_name: \c"
         read column_value
 
         # Check if the column value is null
         if [[ -z $column_value ]]; then
             echo "Column $column_name cannot be null."
-            continue
+            break
         fi
-
-        # Check if the column value already exists (for non-id columns)
-        if [[ "$column_name" != "id" ]]; then
-            if grep -q ";$column_value;" $tname.txt; then
-                echo "Column $column_name value must be unique."
-                continue
-            fi
-        fi
-
         # Append the column value to the table file
         arr[$i]=$column_value
         echo ${arr[$i]}
@@ -213,7 +196,6 @@ function insertIntoTable {
         echo "Column $column_name value '$column_value' added to table $tname.txt"
     done
     echo "${arr[*]}" | tr ' ' ':' >> "${tname}.txt"
-    #printf "%s\n" "${arr[@]}" >> "${tname}.txt"
 }
 function selectTable {
     echo -e "Enter the name of the table you want to select from : \c"
